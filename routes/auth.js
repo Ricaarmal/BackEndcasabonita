@@ -18,13 +18,6 @@ function checkRole(role){
         
 }
 
-
-router.get('/admin', isAuthenticated, (req,res)=>{
-    const admin = req.user.role === "ADMIN";
-    res.json({message: "Esto es Privao"});
-});
-
-
 router.post('/login', passport.authenticate('local'), (req,res,next)=>{
         console.log(req.user)
         return res.status(200).json(req.user);    
