@@ -21,6 +21,7 @@ router.get('/', (req, res, next)=>{
 
 router.post('/create', (req, res, next) => {
     req.body.user = req.app.locals.user
+    console.log(req.body.user);
     Message.create(req.body)
      .then(message =>{
         return User.findByIdAndUpdate(req.app.locals.user.id, {$push:{message: message._id}})
