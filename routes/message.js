@@ -20,9 +20,13 @@ router.get('/', (req, res, next)=>{
 // Create Product
 
 router.post('/create', (req, res, next) => {
+    req.body.user = req.app.locals.user
     Message.create(req.body)
      .then(message =>{
-        return res.status(201).json(message)
+        return User.findByIdAndUpdate(req.app.locals.user.id, {$push:{message: message._id}})
+     })
+     .then(user=>{
+         return res.status(201).json(user)
      })
      .catch(err => {
          return res.json(err).status(500)
