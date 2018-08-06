@@ -25,7 +25,7 @@ router.post('/create', (req, res, next) => {
     Message.create(req.body)
      .then(message =>{
         newMessage = message
-        return User.findByIdAndUpdate(newMessage.user, {$push:{message: message._id}})
+        return User.findByIdAndUpdate(newMessage.user, {$push:{messages: message._id}})
      })
      .then(user=>{
          return res.status(201).json(user)
