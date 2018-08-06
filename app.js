@@ -81,7 +81,7 @@ const index = require('./routes/index');
 const products = require('./routes/product');
 const auth  = require('./routes/auth');
 const message = require('./routes/message')
-// app.use('/', auth);
+app.use('/', auth);
 app.use('/messages', message);
 app.use('/products', products);
 app.use('/', index);
