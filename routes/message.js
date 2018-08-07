@@ -8,7 +8,7 @@ const User = require('../models/User');
 router.get('/', (req, res, next)=>{
 
     Message.find()
-    .populate('User')
+    .populate('user')
     .then(message => {
         return res.status(202).json(message)
     })

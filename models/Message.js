@@ -13,6 +13,10 @@ const messageSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref:'User'
   },
+  deliver: {
+    type: Boolean,
+    default: false
+  },
   location:{
         type:{
             type:String,
