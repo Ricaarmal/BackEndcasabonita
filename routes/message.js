@@ -6,11 +6,13 @@ const User = require('../models/User');
 // Get all Messages
 
 router.get('/', (req, res, next)=>{
-  Message.find()
-  .then(message => {
-    return res.status(202).json(message)
-  })
-  .catch(e=>{
+
+    Message.find()
+    .populate('User')
+    .then(message => {
+        return res.status(202).json(message)
+    })
+    .catch(e=>{
       console.log(e) 
       res.status(500).res.json(e)
     })

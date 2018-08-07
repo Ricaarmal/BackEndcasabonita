@@ -16,7 +16,6 @@ function isAuthenticated(req,res,next){
 
 
 router.post('/login', passport.authenticate('local'), (req,res,next)=>{
-        console.log(req.user)
         req.app.locals.user = req.user;
         return res.status(200).json(req.user);    
 });
