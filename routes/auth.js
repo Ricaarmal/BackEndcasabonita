@@ -29,6 +29,19 @@ router.post('/signup',(req,res,next)=>{
     .catch(e=>next(e));
 })
 
+router.get('/loggedUser', isAuthenticated, (req,res)=>{
+    console.log("LOGGED USER POST RESULT" + req.user)
+    User.findById(req.user._id)
+    .populate('messages')
+    .then(user=>{
+        console.log(user)
+        return res.json(user)
+        
+    })
+    .catch(e=>console.log(e))
+})
+
+
 /* 
 router.post('facebook/login', passport.authenticate('facebook-token') ,(req,res)=>{
     res.json(req.user)
