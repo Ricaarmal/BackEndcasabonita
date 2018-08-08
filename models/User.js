@@ -10,7 +10,7 @@ const userSchema = new require('mongoose').Schema({
     role:{
         type: String,
         enum: ['USER', 'TENDER', 'ADMIN'],
-        default: 'USER'
+        default: 'TENDER'
     },
     products:[
         {
