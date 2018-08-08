@@ -9,6 +9,7 @@ router.get('/', (req, res, next)=>{
 
     Message.find()
     .populate('user')
+    .populate('product')
     .then(message => {
         return res.status(202).json(message)
     })

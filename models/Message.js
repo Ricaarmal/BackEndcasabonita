@@ -17,6 +17,10 @@ const messageSchema = new Schema({
     type: Boolean,
     default: false
   },
+  product: {
+    type: Schema.Types.ObjectId,
+    ref: 'Product'
+  },
   location:{
         type:{
             type:String,
