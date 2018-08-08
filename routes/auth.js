@@ -33,6 +33,7 @@ router.get('/loggedUser', isAuthenticated, (req,res)=>{
     console.log("LOGGED USER POST RESULT" + req.user)
     User.findById(req.user._id)
     .populate('messages')
+    .populate('product')
     .then(user=>{
         console.log(user)
         return res.json(user)
